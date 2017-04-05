@@ -14,6 +14,7 @@
 		51D73F0D1E947F2200263B76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51D73F0C1E947F2200263B76 /* Assets.xcassets */; };
 		51D73F101E947F2200263B76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D73F0E1E947F2200263B76 /* LaunchScreen.storyboard */; };
 		51D73F181E9480FF00263B76 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51D73F171E9480FF00263B76 /* GoogleService-Info.plist */; };
+		51D73F1C1E94841F00263B76 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D73F1B1E94841F00263B76 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		51D73F0F1E947F2200263B76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51D73F111E947F2200263B76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51D73F171E9480FF00263B76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		51D73F1B1E94841F00263B76 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		547D5E8CB3B22A714FF8F1BB /* Pods_QuoteDubDub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuoteDubDub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C247E9692E1B53A0D1A7A84 /* Pods-QuoteDubDub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteDubDub.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteDubDub/Pods-QuoteDubDub.release.xcconfig"; sourceTree = "<group>"; };
 		FCAB25D91679AE4075A5E925 /* Pods-QuoteDubDub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteDubDub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteDubDub/Pods-QuoteDubDub.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			children = (
 				51D73F051E947F2200263B76 /* AppDelegate.swift */,
 				51D73F071E947F2200263B76 /* ViewController.swift */,
+				51D73F1B1E94841F00263B76 /* SignInViewController.swift */,
 				51D73F091E947F2200263B76 /* Main.storyboard */,
 				51D73F0C1E947F2200263B76 /* Assets.xcassets */,
 				51D73F0E1E947F2200263B76 /* LaunchScreen.storyboard */,
@@ -218,6 +221,7 @@
 			files = (
 				51D73F081E947F2200263B76 /* ViewController.swift in Sources */,
 				51D73F061E947F2200263B76 /* AppDelegate.swift in Sources */,
+				51D73F1C1E94841F00263B76 /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +387,7 @@
 				51D73F161E947F2200263B76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
