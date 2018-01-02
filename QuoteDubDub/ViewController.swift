@@ -10,6 +10,13 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
+class CustomTableViewCell : UITableViewCell {
+	
+	@IBOutlet weak var quoteLabel: UILabel!
+	
+	
+}
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var handle: FIRAuthStateDidChangeListenerHandle?
@@ -33,6 +40,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         FirebaseSetup()
         ViewSetup()
+		
+		self.table.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "custom")
     }
     
     
@@ -107,11 +116,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        var cell : CustomTableViewCell = self.table.dequeueReusableCell(withIdentifier: "custom") as! CustomTableViewCell
         let key = quotes_keys[indexPath.row]
         let data = quotes[key]
         
-        cell.textLabel?.text = data ?? ""
+        cell.quoteLabel.text = data ?? ""
         //cell.detailTextLabel?.text = key
         
         return cell

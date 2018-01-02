@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03E5D05A1FFB8B3F0000E283 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03E5D0591FFB8B3F0000E283 /* CustomTableViewCell.xib */; };
 		2F936CDBEBEE646DFF4C0B74 /* Pods_QuoteDubDub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547D5E8CB3B22A714FF8F1BB /* Pods_QuoteDubDub.framework */; };
 		51D73F061E947F2200263B76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D73F051E947F2200263B76 /* AppDelegate.swift */; };
 		51D73F081E947F2200263B76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D73F071E947F2200263B76 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03E5D0591FFB8B3F0000E283 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		51D73F021E947F2200263B76 /* QuoteDubDub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteDubDub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D73F051E947F2200263B76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51D73F071E947F2200263B76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				51D73F1B1E94841F00263B76 /* SignInViewController.swift */,
 				51D73F091E947F2200263B76 /* Main.storyboard */,
 				51D73F0C1E947F2200263B76 /* Assets.xcassets */,
+				03E5D0591FFB8B3F0000E283 /* CustomTableViewCell.xib */,
 				51D73F0E1E947F2200263B76 /* LaunchScreen.storyboard */,
 				51D73F111E947F2200263B76 /* Info.plist */,
 				51D73F171E9480FF00263B76 /* GoogleService-Info.plist */,
@@ -160,6 +163,7 @@
 				51D73F101E947F2200263B76 /* LaunchScreen.storyboard in Resources */,
 				51D73F181E9480FF00263B76 /* GoogleService-Info.plist in Resources */,
 				51D73F0D1E947F2200263B76 /* Assets.xcassets in Resources */,
+				03E5D05A1FFB8B3F0000E283 /* CustomTableViewCell.xib in Resources */,
 				51D73F0B1E947F2200263B76 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
