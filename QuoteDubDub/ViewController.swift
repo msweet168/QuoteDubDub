@@ -11,10 +11,8 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class CustomTableViewCell : UITableViewCell {
-	
+	//maybe add more stuff later??
 	@IBOutlet weak var quoteLabel: UILabel!
-	
-	
 }
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -34,16 +32,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         FirebaseSetup()
-        ViewSetup()
-		
+	
 		self.table.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "custom")
     }
     
     
     func FirebaseSetup() {
-        
         FIRDatabase.database().persistenceEnabled = true
         
         ref = FIRDatabase.database().reference()
@@ -56,7 +51,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.setupData(withUser: user!)
             }
         }
-        
     }
     
     func setupData(withUser user: FIRUser) {
@@ -66,11 +60,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.table.reloadData()
             }
         })
-
     }
-    
-    
-    
+	
     @IBAction func didTapSignout(_ sender: Any) {
         let firebaseAuth = FIRAuth.auth()
         do {
@@ -112,35 +103,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell : CustomTableViewCell = self.table.dequeueReusableCell(withIdentifier: "custom") as! CustomTableViewCell
+		
         let key = quotes_keys[indexPath.row]
         let data = quotes[key]
         
         cell.quoteLabel.text = data ?? ""
-        //cell.detailTextLabel?.text = key
-        
+		
         return cell
-}
-    
-
-    
-    
-    func ViewSetup() {
-        
-        self.title = "WWDC Quotes"
-        
-        
-    }
-    
-    
-
-
+	}
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
-        
-        
     }
-
-
+	
 }
 

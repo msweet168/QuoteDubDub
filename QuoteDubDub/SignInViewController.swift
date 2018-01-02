@@ -13,13 +13,9 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var eField: UITextField!
     @IBOutlet weak var passField: UITextField!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        ViewSetup()
-
     }
     
     @IBAction func didTapSignup() {
@@ -60,16 +56,7 @@ class SignInViewController: UIViewController {
         
         self.present(alert, animated: true)
     }
-    
-    
-    func ViewSetup() {
-        
-        
-        
-    }
-    
-    
-
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
