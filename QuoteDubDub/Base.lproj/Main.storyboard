@@ -153,10 +153,18 @@
                                     <action selector="didTapSignout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ffN-kL-pNS"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4MR-nP-Wpp">
+                                <rect key="frame" x="148" y="20" width="78" height="80"/>
+                                <state key="normal" backgroundImage="add-1"/>
+                                <connections>
+                                    <action selector="didTapAddButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZfQ-68-TjQ"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="178" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="56P-Lb-cv0">
                                 <rect key="frame" x="0.0" y="95" width="375" height="572"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="custom" rowHeight="175" id="eVg-co-fm9">
                                         <rect key="frame" x="0.0" y="28" width="375" height="175"/>
@@ -172,17 +180,36 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="0MZ-rg-PHr"/>
                                 </connections>
                             </tableView>
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="QuoteCard" translatesAutoresizingMaskIntoConstraints="NO" id="B4L-MJ-HeR">
+                                <rect key="frame" x="15" y="62" width="345" height="443"/>
+                            </imageView>
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type quote here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c1l-78-HhS">
+                                <rect key="frame" x="67" y="118" width="240" height="331"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="ICO-K8-YQw"/>
+                                    <constraint firstAttribute="height" constant="331" id="jMi-d0-GQQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="c1l-78-HhS" firstAttribute="centerX" secondItem="B4L-MJ-HeR" secondAttribute="centerX" id="6Ll-TI-8Vt"/>
+                            <constraint firstItem="4MR-nP-Wpp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Byf-ge-MA1"/>
                             <constraint firstItem="56P-Lb-cv0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HUV-S9-vUY"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="56P-Lb-cv0" secondAttribute="bottom" id="INq-vT-2vG"/>
                             <constraint firstItem="FyL-KP-PLc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="J9p-4l-p3V"/>
                             <constraint firstItem="56P-Lb-cv0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KnI-v6-4Zw"/>
+                            <constraint firstItem="B4L-MJ-HeR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="42" id="QfJ-Po-eI3"/>
+                            <constraint firstItem="B4L-MJ-HeR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YbZ-ru-ASy"/>
                             <constraint firstItem="56P-Lb-cv0" firstAttribute="top" secondItem="coj-hO-jSc" secondAttribute="bottom" constant="-5" id="kDn-Bg-cf8"/>
+                            <constraint firstItem="c1l-78-HhS" firstAttribute="centerY" secondItem="B4L-MJ-HeR" secondAttribute="centerY" id="kqB-Nw-V0H"/>
                             <constraint firstAttribute="trailing" secondItem="coj-hO-jSc" secondAttribute="trailing" id="o8t-fx-qs8"/>
                             <constraint firstItem="FyL-KP-PLc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="woR-tw-19T"/>
                             <constraint firstItem="coj-hO-jSc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xCU-Xh-TKD"/>
+                            <constraint firstItem="4MR-nP-Wpp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="z1Z-xe-kDR"/>
                             <constraint firstAttribute="trailing" secondItem="56P-Lb-cv0" secondAttribute="trailing" id="zgE-SL-zjX"/>
                         </constraints>
                     </view>
@@ -192,12 +219,16 @@
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="addButton" destination="4MR-nP-Wpp" id="Lnh-jS-rfg"/>
+                        <outlet property="addButtonInitial" destination="coj-hO-jSc" id="eoU-BP-r1i"/>
+                        <outlet property="enterQuoteTextField" destination="c1l-78-HhS" id="RQ5-2c-KYP"/>
+                        <outlet property="quoteCard" destination="B4L-MJ-HeR" id="cfl-2S-GlM"/>
                         <outlet property="table" destination="56P-Lb-cv0" id="3Ek-ld-2aL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="355.07246376811599" y="70.923913043478265"/>
+            <point key="canvasLocation" x="354.39999999999998" y="70.614692653673174"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hYQ-nS-kWl">
@@ -253,7 +284,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.2274509804" green="0.1764705882" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" background="Pass Field" translatesAutoresizingMaskIntoConstraints="NO" id="DTd-2s-T9P" customClass="LoginTextField" customModule="QuoteDubDub" customModuleProvider="target">
                                 <rect key="frame" x="77" y="325.5" width="220" height="47"/>
@@ -263,7 +294,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.2274509804" green="0.1764705882" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9YQ-n7-jNf">
                                 <rect key="frame" x="77" y="390.5" width="220" height="47"/>
@@ -345,6 +376,7 @@
         <image name="Card" width="343" height="440"/>
         <image name="Email Field" width="220" height="47"/>
         <image name="Pass Field" width="220" height="47"/>
+        <image name="QuoteCard" width="345" height="443"/>
         <image name="add-1" width="78" height="80"/>
         <image name="logout-1" width="77" height="80"/>
     </resources>

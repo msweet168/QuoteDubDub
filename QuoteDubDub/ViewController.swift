@@ -21,7 +21,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var ref: FIRDatabaseReference!
     
     @IBOutlet var table:UITableView!
-    
+	@IBOutlet weak var quoteCard: UIImageView!
+	@IBOutlet weak var enterQuoteTextField: UITextView!
+	@IBOutlet weak var addButton: UIButton!
+	@IBOutlet weak var addButtonInitial: UIButton!
+	
     var quotes: [String: String] = [:] {
         didSet {
             quotes_keys = Array(quotes.keys)
@@ -71,24 +75,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    @IBAction func didTapAdd(_ sender: Any) {
-        let alert = UIAlertController(title: "Add Data", message: "Enter your quote: ", preferredStyle: .alert)
-        
-        alert.addTextField() { textfield in
-        }
-        
-        alert.addAction(UIAlertAction(title: "Ok", style: .default) { [weak alert] _ in
-            guard let textField = alert?.textFields?[0] else { return }
-            guard let text = textField.text else { return }
-            guard !text.isEmpty else { return }
-            //guard let user = FIRAuth.auth()?.currentUser?.email else { return }
-            //guard let userCode = FIRAuth.auth()?.currentUser else { return }
-            
-            // Save text
-            self.ref.child("quotes").childByAutoId().setValue(text)
-        })
-        
-        self.present(alert, animated: true)
+	@IBAction func didTapAddButton(_ sender: Any) {
+		//animate these later
+		table.isHidden = false
+		quoteCard.isHidden = true
+		enterQuoteTextField.isHidden = true
+		addButton.isHidden = true
+		addButtonInitial.isHidden = false
+		
+		guard let textField = enterQuoteTextField else { return }
+		guard let text = textField.text else { return }
+		guard !text.isEmpty else { return }
+		//guard let user = FIRAuth.auth()?.currentUser?.email else { return }
+		//guard let userCode = FIRAuth.auth()?.currentUser else { return }
+		
+		// Save text
+		self.ref.child("quotes").childByAutoId().setValue(text)
+		
+		self.enterQuoteTextField.resignFirstResponder()
+		
+	}
+	@IBAction func didTapAdd(_ sender: Any) {
+		//animate these later
+		table.isHidden = true
+		quoteCard.isHidden = false
+		enterQuoteTextField.isHidden = false
+		addButton.isHidden = false
+		addButtonInitial.isHidden = true
     }
     
     // MARK: - Table view data source
@@ -111,7 +124,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		
         return cell
 	}
-	
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
