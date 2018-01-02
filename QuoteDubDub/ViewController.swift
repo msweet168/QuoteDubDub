@@ -30,10 +30,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     var quotes_keys: [String] = []
-    
-    @IBOutlet weak var emailLabel: UILabel!
-
-
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -69,8 +66,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.table.reloadData()
             }
         })
-        
-        emailLabel.text = user.email!
 
     }
     

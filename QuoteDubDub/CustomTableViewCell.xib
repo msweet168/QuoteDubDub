@@ -16,34 +16,43 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="custom" rowHeight="87" id="szq-Jx-NII" customClass="CustomTableViewCell" customModule="QuoteDubDub" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="custom" rowHeight="175" id="szq-Jx-NII" customClass="CustomTableViewCell" customModule="QuoteDubDub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="178"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="szq-Jx-NII" id="joY-EE-QZw">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="86.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="177.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xl-ya-Bes">
-                        <rect key="frame" x="42" y="24" width="291" height="38"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="udH-mQ-o3b">
+                        <rect key="frame" x="0.0" y="2" width="375" height="175"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xl-ya-Bes">
+                        <rect key="frame" x="23" y="26" width="328" height="127"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="291" id="Ri0-m2-FCH"/>
-                            <constraint firstAttribute="height" constant="38" id="isr-Cc-wyf"/>
+                            <constraint firstAttribute="height" constant="127" id="2h9-ht-JTz"/>
+                            <constraint firstAttribute="width" constant="328" id="cnU-he-a3k"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                         <color key="textColor" red="0.8594313401" green="0.36135349389999999" blue="0.155557693" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="8xl-ya-Bes" firstAttribute="top" secondItem="joY-EE-QZw" secondAttribute="top" constant="3" id="pWx-CS-vvk"/>
+                    <constraint firstItem="8xl-ya-Bes" firstAttribute="centerY" secondItem="joY-EE-QZw" secondAttribute="centerY" id="Xjm-gd-dPl"/>
+                    <constraint firstItem="8xl-ya-Bes" firstAttribute="centerX" secondItem="joY-EE-QZw" secondAttribute="centerX" id="m4h-e6-BaI"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="quoteLabel" destination="8xl-ya-Bes" id="ClR-ZN-1dS"/>
             </connections>
-            <point key="canvasLocation" x="35.5" y="5.5"/>
+            <point key="canvasLocation" x="36.5" y="30"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Rectangle" width="375" height="208"/>
+    </resources>
 </document>
