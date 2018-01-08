@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import Spring
 
 class CustomTableViewCell : UITableViewCell {
 	//maybe add more stuff later??
@@ -17,16 +18,18 @@ class CustomTableViewCell : UITableViewCell {
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var handle: FIRAuthStateDidChangeListenerHandle?
-    var ref: FIRDatabaseReference!
+	var handle: AuthStateDidChangeListenerHandle?
+	var ref: DatabaseReference!
     
     @IBOutlet var table:UITableView!
-	@IBOutlet weak var quoteCard: UIImageView!
-	@IBOutlet weak var enterQuoteTextField: UITextView!
+	@IBOutlet weak var quoteCard: SpringImageView!
+	@IBOutlet weak var enterQuoteTextField: SpringTextView!
 	@IBOutlet weak var addButton: UIButton!
-	@IBOutlet weak var addButtonInitial: UIButton!
+	@IBOutlet weak var addButtonInitial: SpringButton!
+	@IBOutlet weak var animateTableView: SpringView!
+	@IBOutlet weak var addButtonAnimateDecoy: UIImageView!
 	
-    var quotes: [String: String] = [:] {
+	var quotes: [String: String] = [:] {
         didSet {
             quotes_keys = Array(quotes.keys)
         }
@@ -39,16 +42,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         FirebaseSetup()
 	
 		self.table.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "custom")
+		
+		animationPropertiesSetup()
     }
     
     
     func FirebaseSetup() {
-        FIRDatabase.database().persistenceEnabled = true
+		Database.database().isPersistenceEnabled = true
         
-        ref = FIRDatabase.database().reference()
+		ref = Database.database().reference()
         
         // Auth stuff
-        handle = FIRAuth.auth()?.addStateDidChangeListener() { auth, user in
+		handle = Auth.auth().addStateDidChangeListener() { auth, user in
             if user == nil {
                 self.navigationController?.performSegue(withIdentifier: "signin", sender: self)
             } else {
@@ -57,7 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    func setupData(withUser user: FIRUser) {
+	func setupData(withUser user: User) {
         ref.child("quotes").observe(.value, with: { snapshot in
             self.quotes = snapshot.value as? [String: String] ?? [:]
             DispatchQueue.main.async {
@@ -67,9 +72,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 	
     @IBAction func didTapSignout(_ sender: Any) {
-        let firebaseAuth = FIRAuth.auth()
+		let firebaseAuth = Auth.auth()
         do {
-            try firebaseAuth?.signOut()
+			try firebaseAuth.signOut()
         } catch let error {
             print("Error on signout: \(error.localizedDescription)")
         }
@@ -77,11 +82,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
 	@IBAction func didTapAddButton(_ sender: Any) {
 		//animate these later
-		table.isHidden = false
-		quoteCard.isHidden = true
-		enterQuoteTextField.isHidden = true
+		animateTableView.animation = "fadeInRight"
+		animateTableView.animate()
+		
 		addButton.isHidden = true
-		addButtonInitial.isHidden = false
+		addButtonAnimateDecoy.isHidden = false
+		UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: UIViewAnimationOptions.curveEaseInOut, animations:{
+			self.addButtonAnimateDecoy.frame = CGRect.init(x:self.addButtonInitial.frame.midX - (self.addButtonInitial.frame.size.width/2), y: self.addButton.frame.origin.y, width: self.addButtonAnimateDecoy.frame.size.width, height: self.addButtonAnimateDecoy.frame.size.height)
+		}, completion: {(finished:Bool) in
+			self.addButtonAnimateDecoy.isHidden = true
+			self.addButtonInitial.isHidden = false
+		})
+		
+		quoteCard.animation = "fadeInLeft"
+		quoteCard.animateTo()
+		
+		enterQuoteTextField.animation = "fadeInLeft"
+		enterQuoteTextField.animateTo()
 		
 		guard let textField = enterQuoteTextField else { return }
 		guard let text = textField.text else { return }
@@ -93,15 +110,58 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		self.ref.child("quotes").childByAutoId().setValue(text)
 		
 		self.enterQuoteTextField.resignFirstResponder()
+		table.isHidden = false
 		
 	}
+	
+	func animationPropertiesSetup() {
+		
+		self.addButtonAnimateDecoy.frame = CGRect.init(x:self.addButtonInitial.frame.midX - (self.addButtonInitial.frame.size.width/2), y: self.addButton.frame.origin.y - (self.addButtonInitial.frame.size.height/4), width: self.addButtonAnimateDecoy.frame.size.width, height: self.addButtonAnimateDecoy.frame.size.height)
+		
+		animateTableView.curve = "easeInOut"
+		animateTableView.damping = 0.7
+		animateTableView.velocity = 0.7
+		animateTableView.duration = 1.0
+		
+		quoteCard.curve = "easeInOut"
+		quoteCard.damping = 0.7
+		quoteCard.velocity = 0.7
+		quoteCard.duration = 1.0
+		
+		enterQuoteTextField.curve = "easeInOut"
+		enterQuoteTextField.damping = 0.7
+		enterQuoteTextField.velocity = 0.7
+		enterQuoteTextField.duration = 1.0
+		
+	}
+	
 	@IBAction func didTapAdd(_ sender: Any) {
 		//animate these later
-		table.isHidden = true
-		quoteCard.isHidden = false
-		enterQuoteTextField.isHidden = false
-		addButton.isHidden = false
+		//table.isHidden = true
+		
+		animateTableView.animation = "fadeInRight"
+		animateTableView.animateTo()
+		
 		addButtonInitial.isHidden = true
+		addButtonAnimateDecoy.isHidden = false
+		
+		UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: UIViewAnimationOptions.curveEaseInOut, animations:{
+			self.addButtonAnimateDecoy.frame = CGRect.init(x: (self.view.frame.size.width/2) -  (self.addButton.frame.size.width/2), y: self.addButton.frame.origin.y, width: self.addButtonAnimateDecoy.frame.size.width, height: self.addButtonAnimateDecoy.frame.size.height)
+		}, completion: {(finished:Bool) in
+			self.addButtonAnimateDecoy.isHidden = true
+			self.addButton.isHidden = false
+		})
+		
+		quoteCard.isHidden = false
+		
+		quoteCard.animation = "fadeInLeft"
+		quoteCard.animate()
+		
+		enterQuoteTextField.isHidden = false
+		
+		enterQuoteTextField.animation = "fadeInLeft"
+		enterQuoteTextField.animate()
+		
     }
     
     // MARK: - Table view data source
@@ -115,7 +175,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell : CustomTableViewCell = self.table.dequeueReusableCell(withIdentifier: "custom") as! CustomTableViewCell
+		let cell : CustomTableViewCell = self.table.dequeueReusableCell(withIdentifier: "custom") as! CustomTableViewCell
 		
         let key = quotes_keys[indexPath.row]
         let data = quotes[key]

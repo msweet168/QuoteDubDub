@@ -21,7 +21,7 @@ class SignInViewController: UIViewController {
     @IBAction func didTapSignup() {
         guard let email = self.eField.text, let password = self.passField.text else { return showMessagePrompt("email and password can't be empty") }
         
-        FIRAuth.auth()?.createUser(withEmail: email, password: password) { user, error in
+		Auth.auth().createUser(withEmail: email, password: password) { user, error in
             guard error == nil else { return self.showMessagePrompt(error!.localizedDescription) }
             
             print("\(user!.email!) created")
@@ -32,7 +32,7 @@ class SignInViewController: UIViewController {
     @IBAction func didTapSignin() {
         guard let email = self.eField.text, let password = self.passField.text else { return showMessagePrompt("email and password can't be empty") }
         
-        FIRAuth.auth()?.signIn(withEmail: email, password: password) { user, error in
+		Auth.auth().signIn(withEmail: email, password: password) { user, error in
             guard error == nil else { return self.showMessagePrompt(error!.localizedDescription) }
             
             print("\(user!.email!) signed in")
@@ -43,7 +43,7 @@ class SignInViewController: UIViewController {
     @IBAction func didTapForgotPassword() {
         guard let email = self.eField.text else { return showMessagePrompt("email can't be empty") }
         
-        FIRAuth.auth()?.sendPasswordReset(withEmail: email) { error in
+		Auth.auth().sendPasswordReset(withEmail: email) { error in
             guard error == nil else { return self.showMessagePrompt(error!.localizedDescription) }
             
             self.showMessagePrompt("Sent!")

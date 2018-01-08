@@ -9,5 +9,5 @@ target 'QuoteDubDub' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
-
+  pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
 end
