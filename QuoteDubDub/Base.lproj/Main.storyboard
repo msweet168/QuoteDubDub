@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Cyt-If-gZ8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Cyt-If-gZ8">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Helvetica.ttc">
-            <string>Helvetica-Bold</string>
-        </array>
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-        </array>
-        <array key="Menlo.ttc">
-            <string>Menlo-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Sign In View Controller-->
         <scene sceneID="kia-kF-q7e">
@@ -135,7 +124,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="BG" translatesAutoresizingMaskIntoConstraints="NO" id="fC2-5B-kXo">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="BGMain" translatesAutoresizingMaskIntoConstraints="NO" id="fC2-5B-kXo">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -157,11 +146,11 @@
                                     <action selector="didTapSignout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ffN-kL-pNS"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4MR-nP-Wpp">
-                                <rect key="frame" x="168" y="20" width="78" height="80"/>
-                                <state key="normal" backgroundImage="add-1"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ED8-I0-ukU">
+                                <rect key="frame" x="0.0" y="20" width="77" height="80"/>
+                                <state key="normal" backgroundImage="logout-1"/>
                                 <connections>
-                                    <action selector="didTapAddButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZfQ-68-TjQ"/>
+                                    <action selector="didTapBackButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GSC-iM-QYp"/>
                                 </connections>
                             </button>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="91R-KN-3R9" customClass="SpringView" customModule="Spring">
@@ -218,8 +207,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="91R-KN-3R9" secondAttribute="bottom" id="31r-39-eip"/>
+                            <constraint firstItem="ED8-I0-ukU" firstAttribute="centerX" secondItem="FyL-KP-PLc" secondAttribute="centerX" id="4jU-Va-gOt"/>
                             <constraint firstItem="c1l-78-HhS" firstAttribute="centerX" secondItem="B4L-MJ-HeR" secondAttribute="centerX" id="6Ll-TI-8Vt"/>
-                            <constraint firstItem="4MR-nP-Wpp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Byf-ge-MA1"/>
+                            <constraint firstItem="ED8-I0-ukU" firstAttribute="centerY" secondItem="FyL-KP-PLc" secondAttribute="centerY" id="Ing-xy-Jef"/>
                             <constraint firstItem="FyL-KP-PLc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="J9p-4l-p3V"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="91R-KN-3R9" secondAttribute="bottom" id="Njm-OP-9E9"/>
                             <constraint firstItem="B4L-MJ-HeR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="42" id="QfJ-Po-eI3"/>
@@ -231,7 +221,6 @@
                             <constraint firstAttribute="trailing" secondItem="coj-hO-jSc" secondAttribute="trailing" id="o8t-fx-qs8"/>
                             <constraint firstItem="FyL-KP-PLc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="woR-tw-19T"/>
                             <constraint firstItem="coj-hO-jSc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xCU-Xh-TKD"/>
-                            <constraint firstItem="4MR-nP-Wpp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="z1Z-xe-kDR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="J0s-vb-oHh">
@@ -240,12 +229,12 @@
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="addButton" destination="4MR-nP-Wpp" id="Lnh-jS-rfg"/>
-                        <outlet property="addButtonAnimateDecoy" destination="uJP-Y3-gIX" id="2sA-xm-0yE"/>
-                        <outlet property="addButtonInitial" destination="coj-hO-jSc" id="eoU-BP-r1i"/>
+                        <outlet property="addButton" destination="coj-hO-jSc" id="Jxu-fe-21D"/>
                         <outlet property="animateTableView" destination="91R-KN-3R9" id="ny2-N0-Gmb"/>
+                        <outlet property="backButton" destination="ED8-I0-ukU" id="bKh-I9-Kdl"/>
                         <outlet property="enterQuoteTextField" destination="c1l-78-HhS" id="9pX-MD-mat"/>
                         <outlet property="quoteCard" destination="B4L-MJ-HeR" id="ixO-pc-J3V"/>
+                        <outlet property="signOutButton" destination="FyL-KP-PLc" id="NbI-Ea-VQK"/>
                         <outlet property="table" destination="56P-Lb-cv0" id="3Ek-ld-2aL"/>
                     </connections>
                 </viewController>
@@ -282,9 +271,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG" translatesAutoresizingMaskIntoConstraints="NO" id="9VJ-7s-Ull">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BG" translatesAutoresizingMaskIntoConstraints="NO" id="9VJ-7s-Ull">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card" translatesAutoresizingMaskIntoConstraints="NO" id="45q-UO-rzP">
                                 <rect key="frame" x="73.666666666666686" y="175" width="267" height="386"/>
@@ -369,10 +357,13 @@
                         <constraints>
                             <constraint firstItem="qZ5-X5-0wF" firstAttribute="top" secondItem="45q-UO-rzP" secondAttribute="bottom" constant="-9" id="5tr-4c-HQg"/>
                             <constraint firstItem="Q9G-AN-jlr" firstAttribute="top" secondItem="N1g-z3-YwL" secondAttribute="bottom" constant="33" id="8fq-v4-n4L"/>
+                            <constraint firstItem="gVu-Af-u2r" firstAttribute="top" secondItem="9VJ-7s-Ull" secondAttribute="bottom" id="8li-DE-2pz"/>
                             <constraint firstItem="FQQ-ND-o1K" firstAttribute="centerX" secondItem="45q-UO-rzP" secondAttribute="centerX" id="CEW-3U-gXm"/>
                             <constraint firstItem="45q-UO-rzP" firstAttribute="top" secondItem="N1g-z3-YwL" secondAttribute="bottom" constant="-86.5" id="NFZ-Gy-fI9"/>
                             <constraint firstItem="DTd-2s-T9P" firstAttribute="top" secondItem="Q9G-AN-jlr" secondAttribute="bottom" constant="18" id="Pyz-E9-Uum"/>
+                            <constraint firstItem="9VJ-7s-Ull" firstAttribute="top" secondItem="bc0-pD-Vt0" secondAttribute="top" id="QLz-Hc-SWQ"/>
                             <constraint firstItem="9YQ-n7-jNf" firstAttribute="top" secondItem="DTd-2s-T9P" secondAttribute="bottom" constant="18" id="Qa9-v7-k5k"/>
+                            <constraint firstItem="9VJ-7s-Ull" firstAttribute="leading" secondItem="bc0-pD-Vt0" secondAttribute="leading" id="UXy-va-Kkx"/>
                             <constraint firstItem="Q9G-AN-jlr" firstAttribute="centerX" secondItem="45q-UO-rzP" secondAttribute="centerX" id="d9j-xD-qx7"/>
                             <constraint firstItem="45q-UO-rzP" firstAttribute="centerX" secondItem="bc0-pD-Vt0" secondAttribute="centerX" id="goU-IP-6wb"/>
                             <constraint firstItem="45q-UO-rzP" firstAttribute="centerY" secondItem="bc0-pD-Vt0" secondAttribute="centerY" id="gw6-LT-Adj"/>
@@ -380,6 +371,7 @@
                             <constraint firstItem="9YQ-n7-jNf" firstAttribute="centerX" secondItem="45q-UO-rzP" secondAttribute="centerX" id="l50-Pp-3Dl"/>
                             <constraint firstItem="N1g-z3-YwL" firstAttribute="centerX" secondItem="45q-UO-rzP" secondAttribute="centerX" id="lqv-zT-nYy"/>
                             <constraint firstItem="qZ5-X5-0wF" firstAttribute="centerX" secondItem="bc0-pD-Vt0" secondAttribute="centerX" id="s9T-4R-Kjx"/>
+                            <constraint firstAttribute="trailing" secondItem="9VJ-7s-Ull" secondAttribute="trailing" id="scs-mw-WP6"/>
                             <constraint firstItem="FQQ-ND-o1K" firstAttribute="top" secondItem="9YQ-n7-jNf" secondAttribute="bottom" constant="18" id="zRv-oX-hlG"/>
                         </constraints>
                     </view>
@@ -396,6 +388,7 @@
     </scenes>
     <resources>
         <image name="BG" width="375" height="667"/>
+        <image name="BGMain" width="375" height="667"/>
         <image name="Card" width="343" height="440"/>
         <image name="Email Field" width="220" height="47"/>
         <image name="Pass Field" width="220" height="47"/>

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -28,8 +29,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xl-ya-Bes">
-                        <rect key="frame" x="141.5" y="26" width="91" height="127"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xl-ya-Bes">
+                        <rect key="frame" x="31" y="26" width="313" height="127"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="127" id="2h9-ht-JTz"/>
                         </constraints>
@@ -40,8 +41,10 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="8xl-ya-Bes" firstAttribute="leading" secondItem="joY-EE-QZw" secondAttribute="leadingMargin" constant="15" id="Nuj-nM-Kk6"/>
                     <constraint firstItem="8xl-ya-Bes" firstAttribute="centerY" secondItem="joY-EE-QZw" secondAttribute="centerY" id="Xjm-gd-dPl"/>
-                    <constraint firstItem="8xl-ya-Bes" firstAttribute="centerX" secondItem="joY-EE-QZw" secondAttribute="centerX" id="m4h-e6-BaI"/>
+                    <constraint firstItem="8xl-ya-Bes" firstAttribute="centerX" secondItem="joY-EE-QZw" secondAttribute="centerX" id="gY3-Ie-uBs"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="8xl-ya-Bes" secondAttribute="trailing" constant="15" id="qWm-2P-ovi"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
