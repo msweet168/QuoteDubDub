@@ -62,7 +62,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		//self.ref.removeValue()
 	}
     
-    
     //////////////////////////
     // MARK: Firebase Stuff //
     //////////////////////////
@@ -91,8 +90,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		})
 	}
     
-    
-    
     /////////////////////////////////
     // MARK: UI Element Animations //
     /////////////////////////////////
@@ -100,7 +97,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var backTracker = 0
     
     func didTapBackOrSignOut() {
-        
         if backTracker == 0 {
            
             //log out
@@ -147,14 +143,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
 	@IBAction func didTapSignout(_ sender: Any) {
-        
         //make sure we are only able to sign out while on the main menu
         if currentViewID == 1 {
             backTracker = 0
         } else {
             backTracker = 1
         }
-        
         didTapBackOrSignOut()
 	}
     
@@ -229,7 +223,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	}
 
 	func animationPropertiesSetup() {
-
 		self.addButton.frame = CGRect.init(
 			x: self.addButton.frame.midX - (self.addButton.frame.size.width / 2),
 			y: self.addButton.frame.origin.y - (self.addButton.frame.size.height / 4),
@@ -250,8 +243,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		enterQuoteTextField.damping = 0.7
 		enterQuoteTextField.velocity = 0.7
 		enterQuoteTextField.duration = 1.0
-		
 	}
+    
     
     ////////////////////////////////////
 	// MARK: - Table View Data Source //
